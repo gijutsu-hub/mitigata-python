@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block body %}
+<div class=panel>
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px">
+    <span class=tag>Chapter {{ c.no }}</span>
+    <span class="badge b-{{ c.level }}">{{ c.level|upper }}</span></div>
+  <h2>{{ c.title }}</h2>
+  <p class=story>{{ c.story }}</p>
+  {{ form|safe }}
+  {% if output is not none %}{{ output|safe }}{% endif %}
+</div>
+{% endblock %}

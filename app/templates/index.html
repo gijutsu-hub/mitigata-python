@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block body %}
+<section class=hero><div class=kicker>Mission Briefing</div>
+  <h1>The&nbsp;Leak</h1>
+  <p>SecureNote promised "zero-knowledge" notes. It delivered zero knowledge of security.
+  Work through the product chapter by chapter and pull the whole thing apart —
+  seven chapters from <b>Easy</b> to <b>Insane</b>.</p></section>
+<div class=rail>{% for c in chapters %}<div class="step {{ 'done' if loop.first }}"></div>{% endfor %}</div>
+<div class=grid>
+  {% for c in chapters %}
+  <div class=chapter><div class=no>Chapter {{ c.no }}</div>
+    <div class=meta><span class="badge b-{{ c.level }}">{{ c.level|upper }}</span></div>
+    <h3>{{ c.title }}</h3><div class=desc>{{ c.desc }}</div>
+    <a class=btn href="/{{ c.route }}">Enter chapter →</a></div>
+  {% endfor %}
+</div>
+<div class=warn>⚠ Intentionally insecure. Run only on an isolated host.</div>
+{% endblock %}
