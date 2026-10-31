@@ -9,5 +9,8 @@ COPY app/ /app/
 
 # FLASK_DEBUG left on (A05) so the Werkzeug console is reachable
 ENV FLASK_DEBUG=1
+# A06 Vulnerable & Outdated Components: bundle an OUTDATED busybox (known CVEs) for SBOM practice.
+COPY --from=busybox:1.28.4 /bin/busybox /usr/local/bin/busybox-legacy
+
 EXPOSE 5000
 CMD ["python", "app.py"]
